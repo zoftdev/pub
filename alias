@@ -1,0 +1,75 @@
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+
+alias k='kubectl'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls -lrtF'
+rscols="-o=custom-columns=NAME:.metadata.name,RES:spec.containers[].resources"
+kquota=" get resourcequota quota -o yaml"
+alias kswitch='kubectl config use-context'
+alias krun0='kubectl run --rm -it --limits=cpu=100m,memory=200Mi --restart=Never'
+alias krun='kubectl run --rm -it --restart=Never'
+alias ex='/mnt/c/Windows/explorer.exe'
+alias drun='docker run  -it --rm -v $PWD:/app --privileged ' 
+
+#git
+alias gits='git status -s'
+alias gitc='git commit -am'
+
+#go
+alias gocover='go test -coverprofile=cover.out &&go tool cover -html=cover.out -o coverage.html'
+
+#short cut project
+alias gocock='cd /d/playground/2019/cockroach-ssl/withRBAC/cluster_cert/certs'
+alias kcreateconsole='kubectl run --image-pull-policy IfNotPresent --restart=Never  --image=zoftdev/mytool console -- tail -f'
+alias kconsole='kubectl exec -it console --  bash'
+alias ktoppod="kubectl  top pod --all-namespaces |awk '{ print $3\" \"$1\" \"$2 }'|sort -rn |head -20"
+alias ksw=kubectx
+alias kns=kubens
+alias ks=' eval $(kubeselect select|tee ~/.kube_config_default); eval $(echo "kubectl  config use-context $KUBECTX" |tee -a ~/.kube_config_default) '
+alias ksm='kubectl get servicemonitor'
+alias kpodcount="kubectl get pod --all-namespaces -o wide |awk '{print $8 }' |sort  |uniq -c"
+alias h='history 20'
+alias gith='git --git-dir=.git-'
+alias ssh="ssh -o ServerAliveInterval=60   -o PreferredAuthentications=publickey,password -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+alias bd='base64 -d'
+alias watch='watch --color'
+alias kp='kubectl get pod'
+alias kpl='kubectl get pod --show-labels'
+alias kplw='kubectl get pod --show-labels -o wide'
+alias kpw='kubectl get pod  -o wide'
+alias kpu='kubectl get pod  -o=custom-columns=NAME:.metadata.name,NS:.metadata.namespace,UID:.metadata.uid'
+alias kl='kubectl logs --since=5m -f'
+alias sch='sshch $(sshch -l | sed "s/ /\n/g" |fzf)'
+alias ke='kubectl get event  --sort-by=".metadata.creationTimestamp"'
+alias kcreatedebug='kubectl run debug --image gcr.io/kubernetes-e2e-test-images/echoserver:2.1'
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias snip='code ~/work/snippet/'
+alias kt=keptn
+alias t=terraform
+alias v=velero
+alias kd='kubectl describe pod'
+alias 2faa='2f $(2fa -list|fzf)'
+alias k6='docker run -i grafana/k6'
+alias 2ft='2f  terra'
+alias knw='k get node -o wide'
+alias g='grep'
+alias f=first
+alias x=xargs
+alias d=docker
+alias v=vagrant
+alias gp='git add . ;gitc "$(date)" ;git push'
+export do='--dry-run=client -o yaml'
+alias kcreateconsoleksec='kubectl run --image-pull-policy IfNotPresent --restart=Never  --image=k8s-registry.kasikornsecurities.com/jutiruud/test-connect2 console -- tail -f'
+alias i=istioctl
+alias kc='kubectl cnpg'
+alias keof='k apply -f- <<eof'
+alias curl='curl -k'
+alias kf='k apply -f'
+alias kgs='kubectl get secret  -o go-template='"'"'{{ range $k, $v := .data }}{{ printf "%s: %s\n" $k (base64decode $v) }}{{ end }}'"'"''
+alias python='python3'
+alias st=stern
+alias ve=velero
